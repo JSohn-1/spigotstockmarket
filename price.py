@@ -1,5 +1,5 @@
 #imports
-import csv
+import pandas as pd
 import finnhub
 import yaml
 
@@ -7,8 +7,12 @@ import yaml
 with open('config.yaml') as f:
     config = yaml.safe_load(f)
 
+"""
 f = open("stocks.csv", "w")
 writer = csv.writer(f)    
+"""
+
+f = pd.read(
 
 finnhub_client = finnhub.Client(api_key=config[config["Finnhub_API-Key"])
 
