@@ -1,18 +1,39 @@
+#imports
 import csv
 import finnhub
+import yaml
 
-finnhub_client = finnhub.Client(api_key="Your API Key")
+#objects
+with open('config.yaml') as f:
+    config = yaml.safe_load(f)
 
 f = open("stocks.csv", "w")
-writer = csv.writer(f)
+writer = csv.writer(f)    
+
+finnhub_client = finnhub.Client(api_key=config[config["Finnhub_API-Key"])
+
+#variables
+error = False
+reason = ""
+
+#functions
+def problem(r):
+    global error
+    global reason
+    
+    error = True
+    reason = reason + r + "\n"
 
 def addStock(name):
     name = [name]
     writer.writerow(name)
 
-header = ["name", "price", "change_points", "change_percent"]
+    
+#creates the csv
+if error == False:
+    header = ["name", "price", "change_points", "change_percent"]
 
-writer.writerow(header)
-addStock("APPL")
+    writer.writerow(header)
+    addStock("APPL")
 
-f.close()
+    f.close()
