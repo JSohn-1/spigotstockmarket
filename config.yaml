@@ -1,0 +1,11 @@
+price:
+ #Use your standard API key from finnhub.io 
+ Finnhub_API-Key: 
+
+ #Enter in the shorted stock names, each one followed by a comma
+ Stocks: 
+  -APPl
+  -TSLA
+
+ #By default, the free plan is selected. If you have the all-in-one plan, change it to 1
+ Plan: 0
