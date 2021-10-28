@@ -1,7 +1,21 @@
-#imports
-import pandas as pd
-import finnhub
-import yaml
+#Problem checking
+error = False
+reason = ""
+
+def problem(r):
+    global error
+    global reason
+    
+    error = True
+    reason = reason + r + "\n"
+
+try:
+    #imports
+    import pandas as pd
+    import finnhub
+    import yaml
+except ModuleNotFoundError:
+    problem("Certain packages not installed")
 
 #objects
 with open('config.yaml') as f:
@@ -11,22 +25,15 @@ with open('config.yaml') as f:
 f = open("stocks.csv", "w")
 writer = csv.writer(f)    
 """
-
-f = pd.read(
-
+try:
+    f = pd.read_csv("stocks.csv")
+except FileNotFoundError:
+    problem("stocks.csv does not exist")
+    
 finnhub_client = finnhub.Client(api_key=config[config["Finnhub_API-Key"])
 
-#variables
-error = False
-reason = ""
-
 #functions
-def problem(r):
-    global error
-    global reason
-    
-    error = True
-    reason = reason + r + "\n"
+
 
 def addStock(name):
     name = [name]
@@ -41,3 +48,6 @@ if error == False:
     addStock("APPL")
 
     f.close()
+else:
+    print(reason)                                              
+print(finnhub_client.quote('AAPL'))                                      
