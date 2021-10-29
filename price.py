@@ -17,7 +17,7 @@ try:
 except ModuleNotFoundError:
     problem("Certain packages not installed")
 
-#objects
+#objects 
 with open('config.yaml') as f:
     config = yaml.safe_load(f)
 
@@ -26,14 +26,13 @@ f = open("stocks.csv", "w")
 writer = csv.writer(f)    
 """
 try:
-    f = pd.read_csv("stocks.csv")
+    f = pd.read_csv(config["Path"])
 except FileNotFoundError:
-    problem("stocks.csv does not exist")
+    problem(config["Path"] + " does not exist")
     
 finnhub_client = finnhub.Client(api_key=config[config["Finnhub_API-Key"])
 
 #functions
-
 
 def addStock(name):
     name = [name]
