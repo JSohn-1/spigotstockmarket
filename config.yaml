@@ -1,12 +1,16 @@
-stocks:
-  #Use your standard API key from finnhub.io 
-  Finnhub_API-Key: Your Key
-  
-  #Enter in the shorted stock names, each one followed by a comma
-  Stocks: APPL, TSLA
-  
-  #By default, the free plan is selected. If you have the all-in-one plan, change it to 1
-  Plan: 0
+price:
+ #Use your standard API key from finnhub.io 
+ Finnhub_API-Key: 
 
-  #Path to the stocks.csv file
-  Path: D:\Library\Projects\Minecraft_Plugins\stocks.csv
+ #Enter in the stock symbol, each one followed by a comma. Does not support crypto
+ Stocks: 
+  -APPl
+  -TSLA
+  -ETH-USD
+  -FBGRX
+
+ #By default, the free plan is selected. If you have the all-in-one plan, change it to 1
+ Plan: 0
+ 
+ #Enter in the file path for the stock csv file. By default, the 
+ Path: stocks.csv
