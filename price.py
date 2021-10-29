@@ -18,22 +18,24 @@ except ModuleNotFoundError:
     problem("Certain packages not installed")
 
 #objects 
-with open('config.yaml') as f:
+with open('D:\Library\Projects\Minecraft_Plugins\config.yaml') as f:
     config = yaml.safe_load(f)
-
+print(config)
 """
 f = open("stocks.csv", "w")
 writer = csv.writer(f)    
 """
 try:
-    f = pd.read_csv(config["Path"])
+    f = pd.read_csv(config["stocks"]["Path"])
+    print("Test")
 except FileNotFoundError:
-    problem(config["Path"] + " does not exist")
-    
-finnhub_client = finnhub.Client(api_key=config[config["Finnhub_API-Key"]])
+    problem(config["stocks"]["Path"] + " does not exist")
+
+
+finnhub_client = finnhub.Client(api_key=config["stocks"]["Finnhub_API-Key"])
 
 #functions
-
+"""
 def addStock(name):
     name = [name]
     writer.writerow(name)
@@ -48,5 +50,6 @@ if error == False:
 
     f.close()
 else:
-    print(reason)                                              
-print(finnhub_client.quote('AAPL'))                                      
+    print(reason)
+"""                                              
+print(finnhub_client.quote('AAPL')["c"])                        
