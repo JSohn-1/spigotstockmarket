@@ -30,7 +30,7 @@ try:
 except FileNotFoundError:
     problem(config["Path"] + " does not exist")
     
-finnhub_client = finnhub.Client(api_key=config[config["Finnhub_API-Key"])
+finnhub_client = finnhub.Client(api_key=config[config["Finnhub_API-Key"]])
 
 #functions
 
