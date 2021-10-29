@@ -21,10 +21,7 @@ except ModuleNotFoundError:
 with open('D:\Library\Projects\Minecraft_Plugins\config.yaml') as f:
     config = yaml.safe_load(f)
 print(config)
-"""
-f = open("stocks.csv", "w")
-writer = csv.writer(f)    
-"""
+
 try:
     f = pd.read_csv(config["stocks"]["Path"])
     print("Test")
