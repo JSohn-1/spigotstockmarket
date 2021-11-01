@@ -49,9 +49,11 @@ if error == False:
 else:
     print(reason)
 """                                              
-d=finnhub_client.quote('AAPL')["c"]
+d=finnhub_client.quote('AAPL')
 df=pd.DataFrame(data=d)
 df.to_csv('Stocks.csv', sep ='\t')
 new_df = pd.read_csv('Stocks.csv')
+price=new_df['c']
 print('Data from Stocks.csv:')
 print(new_df)
+print(price)
